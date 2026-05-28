@@ -51,7 +51,7 @@ pipeline {
                     sh '''
                         aws eks update-kubeconfig \
                             --region ${AWS_REGION} \
-                            --name cloudmart-eks
+                            --name cloudmart
 
                         kubectl get nodes
 
