@@ -46,7 +46,7 @@ pipeline {
         stage('Deploy to EKS') {
             steps {
                 echo 'Deploying to EKS...'
-                withKubeConfig([credentialsId: 'kubeconfig']) {
+                withKubeConfig([credentialsId: 'kube-config']) {
                     sh '''
                         kubectl set image deployment/user-service \
                             user-service=${ECR_REGISTRY}/cloudmart/user-service:${IMAGE_TAG} \
