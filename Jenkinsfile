@@ -46,8 +46,15 @@ pipeline {
         stage('Deploy to EKS') {
             steps {
                 echo 'Deploying to EKS...'
-                withKubeConfig([credentialsId: 'kubeconfig']) {
+
+                withAWS(credentials: 'aws-credentials', region: "${AWS_REGION}") {
                     sh '''
+                        aws eks update-kubeconfig \
+                            --region ${AWS_REGION} \
+                            --name cloudmart-eks
+
+                        kubectl get nodes
+
                         kubectl set image deployment/user-service \
                             user-service=${ECR_REGISTRY}/cloudmart/user-service:${IMAGE_TAG} \
                             --namespace=default
@@ -74,7 +81,7 @@ pipeline {
             echo 'Pipeline completed successfully! New version deployed to EKS.'
         }
         failure {
-            echo ' Pipeline failed! Check the logs above.'
+            echo 'Pipeline failed! Check the logs above.'
         }
     }
 }
