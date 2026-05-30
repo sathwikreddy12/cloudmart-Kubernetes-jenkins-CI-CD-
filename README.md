@@ -289,28 +289,7 @@ eksctl delete cluster --name cloudmart --region us-east-2
 
 ---
 
-## Screenshots to Include in Repo
 
-Create a `screenshots/` folder in your repo and add these:
-
-| Filename | What to capture |
-|---|---|
-| `eks-cluster-nodes.png` | `kubectl get nodes -o wide` — showing 2 nodes, AZs, versions |
-| `pods-spread.png` | `kubectl get pods -o wide` — showing pods distributed across both nodes |
-| `ecr-repositories.png` | ECR console showing 3 repos with v1, v2... tags |
-| `jenkins-pipeline.png` | Jenkins Stage View — all 6 stages green |
-| `jenkins-webhook.png` | GitHub webhook Recent Deliveries — green ticks |
-| `postman-register.png` | Postman POST /register — 201 Created response |
-| `postman-login.png` | Postman POST /login — JWT token in response |
-| `postman-products.png` | Postman GET /products — product list response |
-| `grafana-dashboard.png` | Grafana Kubernetes dashboard — pods, nodes, memory |
-| `ingress-rules.png` | `kubectl describe ingress cloudmart-ingress` |
-| `vpc-peering.png` | AWS VPC console showing peering connection active |
-| `hpa.png` | `kubectl get hpa` — showing all 3 HPAs |
-| `loadbalancer.png` | AWS EC2 Load Balancers console — CLB active |
-| `security-groups.png` | Inbound rules showing scoped CIDR rules |
-
----
 
 ## Skills Demonstrated
 
